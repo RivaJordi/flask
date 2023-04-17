@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = 'valeriedarling/flask_app'
+        registry = 'rivajordi/flask_app'
         registryCredentials = 'docker'
         cluster_name = 'skillstorm'
     }
@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Git') {
       steps {
-        git(url: 'https://github.com/valeriedarling/flasky', branch: 'main')
+        git(url: 'https://github.com/rivajordi/flasky', branch: 'main')
       }
     }
 stage('Build Stage') {
