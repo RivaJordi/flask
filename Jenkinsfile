@@ -14,7 +14,6 @@ pipeline {
   stages {
     stage('Git') {
       steps {
-=======
         git(url: 'https://github.com/rivajordi/flasky', branch: 'main')
       }
     }
