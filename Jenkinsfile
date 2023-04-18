@@ -14,11 +14,8 @@ pipeline {
   stages {
     stage('Git') {
       steps {
-<<<<<<< HEAD
-        git(url: 'https://github.com/rivajordi/flasky', branch: 'main')
 =======
         git(url: 'https://github.com/rivajordi/flasky', branch: 'main')
->>>>>>> 6e8bbb2968aa4511b9dcc93abcf3f66871495e6f
       }
     }
 stage('Build Stage') {
@@ -39,7 +36,7 @@ stage('Deploy Stage') {
       }
 stage('Kubernetes') {
   steps {
-    withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_SECRET_ACCESS_KEY']) {
+    withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'AWS', secretKeyVariable: 'AWS+SECRET_ACCESS_KEY')]) {
       sh "aws eks update-kubeconfig --region -us-east-1 --name ${cluster_name}"
       script{
         try{
